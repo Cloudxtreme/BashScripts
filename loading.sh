@@ -3,7 +3,7 @@
 init(){
     COLS=$(tput cols)
     ROWS=$(tput lines)
-    CENTERROW=$((ROWS/2))
+    CENTERROW=$((ROWS/2+2))
     CENTERROW=$((CENTERROW-10))
     CENTERCOL=$((COLS/2))
     CENTERCOL=$((CENTERCOL-19))
@@ -1049,11 +1049,11 @@ trap control-c SIGINT
 
 COUNTER=0
 
-while [ $COUNTER -lt 3 ]; 
+# while [ $COUNTER -ne 1 ]; 
 # while [ 1 = 1 ];
 tput clear
 tput civis
-do
+# do
     init; fn1; wait;
     init; fn2; wait;
     init; fn3; wait;
@@ -1097,7 +1097,7 @@ do
     #/Wait
     tput clear
     let COUNTER=COUNTER+1
-done
+# done
 tput clear
 tput cnorm
 
